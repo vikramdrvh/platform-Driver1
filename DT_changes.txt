@@ -1,0 +1,66 @@
+//DEVICE TREE changes below 
+// /* vikram made changes here */
+
+// &am33xx_pinmux {
+
+// 	my_gpio12pin: my_gpio12pin {
+// 		pinctrl-single,pins = <
+// 			AM33XX_PADCONF(AM335X_PIN_GPMC_AD12, PIN_INPUT, MUX_MODE7)
+// 		>;
+// 	};
+// };
+
+
+// / {
+// 	my_test_device {
+
+// 		compatible = "vik,testdriver";
+// 		/*reg = <0x4804C000 0x1000>;*/
+// 		pinctrl-names = "default";
+// 		pinctrl-0 = <&my_gpio12pin>;
+// 		interrupts = <12 1>;
+// 		interrupt-parent = <&gpio1>;
+// 		status = "okay";
+// 	};
+// };
+
+
+
+
+
+
+
+// &am33xx_pinmux {
+//     my_gpio12pin: my_gpio12pin {
+//         pinctrl-single,pins = <
+//             AM33XX_PADCONF(AM335X_PIN_GPMC_AD12, PIN_INPUT, MUX_MODE7)
+//         >;
+//     };
+// };
+
+
+
+// /* * Create a new standalone node at the root level ( / ) 
+//  * Do NOT use &gpio1 here. 
+//  */
+// / {
+//     my_test_device {
+//         compatible = "vik,testdriver";
+//         pinctrl-names = "default";
+//         pinctrl-0 = <&my_gpio12pin>;
+        
+        
+//         interrupts = <12 IRQ_TYPE_EDGE_FALLING>; 
+
+
+// 		IRQ_TYPE_EDGE_FALLING to mention this macro this as to be included /* #include <dt-bindings/interrupt-controller/irq.h>
+// 		IRQ_TYPE_EDGE_RISING (1)
+// 		IRQ_TYPE_EDGE_FALLING (2)
+// 		IRQ_TYPE_EDGE_BOTH (3)
+// 		IRQ_TYPE_LEVEL_HIGH (4)
+// 		IRQ_TYPE_LEVEL_LOW (8)
+// 		*/
+    
+//         status = "okay";
+//     };
+// };
